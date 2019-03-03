@@ -10,7 +10,7 @@ An API and a web based application that converts numbers to roman numerals.
 
 - install npm and node: <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">https://docs.npmjs.com/downloading-and-installing-node-js-and-npm</a>
 
-- install bunyan
+- install bunyan and nodemon
 
         $ npm i -g bunyan nodemon
 
