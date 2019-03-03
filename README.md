@@ -16,21 +16,23 @@ An API and a web based application that converts numbers to roman numerals.
 
 ### Usage
 
-        $ cd project root
-        $ cd server && npm start
-        $ open new terminal window
-        $ cd project root
-        $ cd client && npm start
+- cd into project root directory
+
+        $ cd ./server && npm install && npm start
+
+- open new terminal window.
+
+- cd into project root directory
+
+        $ cd ./client && npm install && npm start
 
 - Screenshots of project are available in the screenshot folder
 
 ### Testing
 
-        $ cd project root
-        $ cd server && npm test
-        $ open new terminal window
-        $ cd project root
-        $ cd client && npm test
+- cd into project root directory
+
+        $ cd ./server && npm test
 
 # Original Technical Task
 
