@@ -1,22 +1,29 @@
+<img src="https://raw.githubusercontent.com/nialloc9/roman_numerals/master/screenshots/images/convert16.png" alt='coverting 16 to roman numerals' width="100">
+
 # roman_numerals
 
 An API and a web based application that converts numbers to roman numerals.
 
-# prerequisites
+### Prerequisites
 
-install npm
+- install npm and node: <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">https://docs.npmjs.com/downloading-and-installing-node-js-and-npm</a>
 
-install node
+- install bunyan
 
-npm i -g bunyan nodemon
+        $ npm i -g bunyan nodemon
 
-# installation
+### Usage
 
-cd server && npm install
+        $ cd project root
+        $ cd server && npm start
+        $ open new terminal window
+        $ cd project root
+        $ cd client && npm start
 
-cd client && npm install
+### Testing
 
-# start up
-
-cd server && npm start
-cd client && npm start
+        $ cd project root
+        $ cd server && npm test
+        $ open new terminal window
+        $ cd project root
+        $ cd client && npm test

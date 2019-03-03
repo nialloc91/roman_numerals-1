@@ -18,6 +18,14 @@ const logger = bunyan.createLogger({ name: config.name });
 const log = (level, ...payload) => logger[level](payload);
 
 /**
+ * @description creates a new timestamp in the format passed
+ * @param {string} timestamp
+ * @returns
+ */
+const createTimestamp = timestamp =>
+  timestamp ? new Date(timestamp) : new Date();
+  
+/**
  * returns a response object
  * @param {*} data
  * @returns {*} response
@@ -27,14 +35,6 @@ const handleResponse = data => ({
   data,
   timestamp: createTimestamp()
 });
-
-/**
- * @description creates a new timestamp in the format passed
- * @param {string} timestamp
- * @returns
- */
-const createTimestamp = timestamp =>
-  timestamp ? new Date(timestamp) : new Date();
 
 module.exports = {
   log,

@@ -35,7 +35,7 @@ const handleToRomanNumeral = number => {
       result = `${result}${value.repeat(numOfTimes)}`;
 
       // take away the value from the original value
-      parsedNumber = parsedNumber - key * numOfTimes;
+      parsedNumber -= key * numOfTimes;
     }
   });
 

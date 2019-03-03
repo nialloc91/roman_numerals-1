@@ -1,3 +1,5 @@
+/* global expect, test, describe */
+
 const { handleToRomanNumeral } = require("../numbers");
 
 describe("handleToRomanNumeral test suite", () => {
