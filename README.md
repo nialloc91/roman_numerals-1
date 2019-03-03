@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/nialloc9/roman_numerals/master/screenshots/images/convert16.png" alt='coverting 16 to roman numerals' width="100">
+<img src="https://raw.githubusercontent.com/nialloc9/roman_numerals/master/screenshots/convert16.png" alt='coverting 16 to roman numerals' width="100">
 
 # roman_numerals
 
