@@ -6,7 +6,8 @@
     "axios": "^0.18.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "semantic-ui-react": "^0.85.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,10 +19,9 @@
     "extends": "react-app"
   },
   "browserslist": [
+    "last 2 version",
     ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    "not dead"
   ],
-  "proxy": "http://localhost:3001"
+  "devDependencies": {}
 }

@@ -1,7 +1,7 @@
 const {
   handleRomanNumeral: handleRomanNum
 } = require("../models/v1/manipulate");
-const { handleResponse } = require("../../utils/utils");
+const { handleResponse, log } = require("../../utils/utils");
 const { handleToRomanNumeral } = require("../../utils/transformers/numbers");
 
 /**
@@ -22,6 +22,7 @@ const handleRomanNumeral = async (req, res) => {
 
     res.status(200).send(handleResponse({ romanNumeral }));
   } catch ({ code = 500, message }) {
+    log("error", { code, message });
     res.status(code).send({ message });
   }
 };

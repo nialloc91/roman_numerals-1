@@ -8,12 +8,14 @@ const handleRomanNumeral = async req => {
     params: { value }
   } = req;
 
-  if (isNaN(value)) {
+  const parsedValue = Number(value);
+
+  // if value is not an integer
+  if (!Number.isInteger(parsedValue)) {
     return Promise.reject({ code: 400, message: "Invalid type supplied." });
   }
 
-  const parsedValue = parseFloat(value, 10);
-
+  // if value is out of bounds
   if (parsedValue < 1 || parsedValue > 3999) {
     return Promise.reject({
       code: 400,
