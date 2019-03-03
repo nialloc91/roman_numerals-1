@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/nialloc9/roman_numerals/master/screenshots/convert16.png" alt='coverting 16 to roman numerals' width="700">
+    <img src="https://raw.githubusercontent.com/nialloc9/roman_numerals/master/screenshots/convert16.png" alt='coverting 16 to roman numerals' width="400">
 </p>
 
 # roman_numerals
