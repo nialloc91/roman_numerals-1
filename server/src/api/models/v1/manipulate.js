@@ -1,9 +1,9 @@
 /**
- * @description validates a call to the roman numeral endpoint
+ * @description validates a call to the number to roman numeral endpoint
  * @param {*} req
  * @returns {<Promise>}
  */
-const handleRomanNumeral = async req => {
+const handleNumberToRomanNumeral = async req => {
   const {
     params: { value }
   } = req;
@@ -23,9 +23,34 @@ const handleRomanNumeral = async req => {
     });
   }
 
-  Promise.resolve();
+  return Promise.resolve();
+};
+
+/**
+ * @description validates a call to the roman numeral endpoint
+ * @param {*} req
+ * @returns {<Promise>}
+ */
+const handleRomanNumeralToNumber = async req => {
+  const {
+    params: { value }
+  } = req;
+  // if value is not an integer
+  if (typeof value !== "string") {
+    return Promise.reject({ code: 400, message: "Invalid type supplied." });
+  }
+
+  if (!/^[M,D,C,L,X,V,I]+$/g.test(value)) {
+    return Promise.reject({
+      code: 400,
+      message: "Value can only contain [M,D,C,L,X,V,I]."
+    });
+  }
+
+  return Promise.resolve();
 };
 
 module.exports = {
-  handleRomanNumeral
+  handleNumberToRomanNumeral,
+  handleRomanNumeralToNumber
 };

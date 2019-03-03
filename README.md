@@ -22,6 +22,8 @@ An API and a web based application that converts numbers to roman numerals.
         $ cd project root
         $ cd client && npm start
 
+- Screenshots of project are available in the screenshot folder
+
 ### Testing
 
         $ cd project root
@@ -74,6 +76,8 @@ Below you will find a combination of assumptions made, notes, intended client ap
 
 - The endpoints doe not need to be authenticated. (If they do a bearer token will be added to the headers and a 401 status code will be returned if token is invalid)
 
+- The minimum criteria seems to be missing part of it's description. "In reverse ". I will ignore this until I get confirmation of what it is.
+
 - Data transfer will be accomplished using a Rest API. (For example not via sockets or using other technologies such as graphQL)
 
 - All numbers will be integers and not floats or any other data type.
@@ -87,6 +91,8 @@ Below you will find a combination of assumptions made, notes, intended client ap
 - Initial value does not need to be passed back in response.
 
 - API will only be consumed by this client.
+
+- Supported devices not in specification. Going to assume a mobile first approach.
 
 ### Notes
 
@@ -112,7 +118,15 @@ Below you will find a combination of assumptions made, notes, intended client ap
 
 - The transformer functions for manipulating the data will be abstracted into a utility file to keep code clean and make it easier to test.
 
-### Intened API endpoits
+- I will use enveloping to ensure all responses from the server follow the same data structure. { timestamp, data }. This allows such things a requestId and other data to be added to the object later without effecting the core data struture returned.
+
+### Intended API endpoits
 
 - GET /manipulate/roman-numeral/:value
 - GET /manipulate/number/:value
+
+### Improvements
+
+- Testing can be increased to 100% coverage for both client and server.
+- End to end testing can be integrated to test application from the viewpoint of the user.
+- Recent conversions could be saved in local state and shown on the left as quick references. (This is outside the scope of this project but would be a nice future feature)

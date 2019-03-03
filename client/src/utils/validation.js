@@ -23,6 +23,16 @@ export const validateRequired = value =>
   !!value ? undefined : "You must input a value.";
 
 /**
+ * @description validates whether a value is a valid roman numeral
+ * @param {{*}} value - value
+ * @returns {string | undefined}
+ */
+export const validateRomanNumeral = value =>
+  /^[M,D,C,L,X,V,I]+$/g.test(value)
+    ? undefined
+    : "Roman numerals can only contain M,D,C,L,X,V or I.";
+
+/**
  * @description returns an error if one is found by validators
  * @param {[func]} validators
  * @param {*} value

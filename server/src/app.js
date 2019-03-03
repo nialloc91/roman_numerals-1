@@ -1,7 +1,7 @@
 const express = require("express");
 const middleware = require("./middleware");
 const config = require("./utils/config");
-const { handleRomanNumeral } = require("./api/v1/manipulate");
+const { handleNumber, handleRomanNumeral } = require("./api/v1/manipulate");
 
 const { clientAddress } = config;
 
@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 });
 
 // RPC
+app.get("/v1/manipulate/number/:value", handleNumber);
 app.get("/v1/manipulate/roman-numeral/:value", handleRomanNumeral);
 app.get("/status", (req, res) => res.status(200).send({ isOkay: true }));
 

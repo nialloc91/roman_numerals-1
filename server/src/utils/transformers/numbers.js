@@ -42,6 +42,43 @@ const handleToRomanNumeral = number => {
   return result;
 };
 
+/**
+ * @description converts a roman numeral to integer
+ * @see https://www.rapidtables.com/convert/number/how-roman-numerals-to-number.html
+ * @param {string} romanNumeral
+ * @returns {int}
+ */
+const handleRomanNumeralToNumber = romanNumeral => {
+  // this map is only a list of single roman numeral characters becase we go character by character either adding or taking away from total. i.e IV = - 1 + 5
+  const romanNumeralMap = new Map([
+    ["M", 1000],
+    ["D", 500],
+    ["C", 100],
+    ["L", 50],
+    ["X", 10],
+    ["V", 5],
+    ["I", 1]
+  ]);
+
+  const splitString = romanNumeral.split("");
+
+  const result = splitString.reduce((total, curr, currentIndex, array) => {
+    const nextChar = array[currentIndex + 1];
+
+    const current = romanNumeralMap.get(curr);
+    const next = nextChar ? romanNumeralMap.get(nextChar) : -1; // -1 will always be less than the current
+
+    if (!next || current >= next) {
+      return total + current;
+    }
+
+    return total - current;
+  }, 0);
+
+  return result;
+};
+
 module.exports = {
-  handleToRomanNumeral
+  handleToRomanNumeral,
+  handleRomanNumeralToNumber
 };

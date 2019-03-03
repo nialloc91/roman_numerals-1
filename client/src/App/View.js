@@ -7,16 +7,26 @@ import {
   Message,
   Header,
   Icon,
-  Divider
+  Divider,
+  Radio
 } from "semantic-ui-react";
 
 class View extends Component {
   static propTypes = {
+    isConvertingToNumber: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,
     isDisabled: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
-    romanNumeral: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+    result: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        checked: PropTypes.bool,
+        onChange: PropTypes.func
+      })
+    )
   };
 
   /**
@@ -25,24 +35,41 @@ class View extends Component {
   renderHeader = () => (
     <Header as="h2" icon textAlign="center">
       <Icon name="sync alternate" circular />
-      <Header.Content>Convert Numbers To Roman Numerals</Header.Content>
+      <Header.Content>Converting data</Header.Content>
       <Header.Subheader>
         Input a number between 1 and 3999 below and click submit to convert to
-        roman numerals. e.g 1 = "I"
+        roman numerals. e.g 1 = "I". Or input a roman numeral between "I" and
+        "MMMCMXCIX" to convert to decimal.
       </Header.Subheader>
     </Header>
   );
   /**
    * @description renders the form for inputing data
    */
-  renderInput = () => {
-    const { isDisabled, isLoading, value, onChange, onSubmit } = this.props;
+  renderInputs = () => {
+    const {
+      isConvertingToNumber,
+      isDisabled,
+      isLoading,
+      value,
+      options,
+      onChange,
+      onSubmit
+    } = this.props;
+
+    const type = isConvertingToNumber ? "text" : "number";
 
     return (
       <Form onSubmit={onSubmit}>
+        <Form.Field>Convert:</Form.Field>
+        {options.map(o => (
+          <Form.Field key={o.label}>
+            <Radio {...o} />
+          </Form.Field>
+        ))}
         <Form.Field>
           <Input
-            type="number"
+            type={type}
             placeholder="Please input the value to convert."
             disabled={isLoading}
             value={value}
@@ -80,30 +107,27 @@ class View extends Component {
    * @description renders the result of the conversion
    */
   renderResult = () => {
-    const { romanNumeral, value } = this.props;
+    const { result, value } = this.props;
 
-    if (!romanNumeral) return null;
+    if (!result) return null;
 
     return (
       <Fragment>
         <Divider />
-        <Message
-          positive
-          content={`${value} in roman numerals is: "${romanNumeral}"`}
-        />
+        <Message positive content={`${value} converted is: "${result}"`} />
       </Fragment>
     );
   };
 
   render() {
     return (
-      <Grid container stackable centered columns={1}>
+      <Grid container stackable centered columns={3}>
         <Grid.Column />
         <Grid.Column>{this.renderHeader()}</Grid.Column>
         <Grid.Column />
         <Grid.Column />
         <Grid.Column width={5}>
-          {this.renderInput()}
+          {this.renderInputs()}
           <div>
             {this.renderErrorMessage()}
             {this.renderResult()}
