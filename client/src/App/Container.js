@@ -31,13 +31,23 @@ class App extends Component {
         label: "Roman Numeral",
         checked: isConvertingToNumber,
         onChange: () =>
-          this.setState({ isConvertingToNumber: true, value: "", result: "" })
+          this.setState({
+            isConvertingToNumber: true,
+            value: "",
+            result: "",
+            isDisabled: true
+          })
       },
       {
         label: "Number",
         checked: !isConvertingToNumber,
         onChange: () =>
-          this.setState({ isConvertingToNumber: false, value: 1, result: "" })
+          this.setState({
+            isConvertingToNumber: false,
+            value: 1,
+            result: "",
+            isDisabled: false
+          })
       }
     ];
   }
