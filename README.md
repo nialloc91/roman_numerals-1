@@ -104,8 +104,6 @@ Below you will find a combination of assumptions made, notes, intended client ap
 
 - As the project will only have one view I will use local state and pass that down instead of using a data store such as redux. This would be overkill for something like this. I will split the logic and view into 2. A container and a view. While inheritance could be used here I will use object composition instead as react favors it.
 
-- Each api call will have a unique callerId to enable better logging and make it easier to isolate bugs and any future issues.
-
 - Validation will be custom and created using
 
 ### Intended approach Server
