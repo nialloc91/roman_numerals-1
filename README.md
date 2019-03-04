@@ -106,11 +106,9 @@ Below you will find a combination of assumptions made, notes, intended client ap
 
 - As the project will only have one view I will use local state and pass that down instead of using a data store such as redux. This would be overkill for something like this. I will split the logic and view into 2. A container and a view. While inheritance could be used here I will use object composition instead as react favors it.
 
-- Validation will be custom and created using
+- Validation will be custom and created using a pipeline function that will call each validation function and pass it's response to the next function and so on untill it has called each function. If the end result is a string then display that as the message. This ensures that each validation function can be used individually or in combination with others (in any order) while keeping the code clean, neat, and reusable.
 
 ### Intended approach Server
-
-- I will add middleware to prevent cors and other security issues.
 
 - I will add middleware to log all incoming requests.
 
@@ -119,6 +117,10 @@ Below you will find a combination of assumptions made, notes, intended client ap
 - The transformer functions for manipulating the data will be abstracted into a utility file to keep code clean and make it easier to test.
 
 - I will use enveloping to ensure all responses from the server follow the same data structure. { timestamp, data }. This allows such things a requestId and other data to be added to the object later without effecting the core data struture returned.
+
+- I will add middleware to handle common security issues.
+
+- Tests will be added for the transformers.
 
 ### Intended API endpoits
 
